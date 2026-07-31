@@ -2,12 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostController;
+
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/teste', function () {
-    return 'Teste de View';
 });
 
 Route::resource('/posts', PostController::class);
