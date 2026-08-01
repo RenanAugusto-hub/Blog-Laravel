@@ -1,4 +1,4 @@
 @foreach ($posts as $post)
-    {{ $post->title }}
-    {{ $post->content }}
+    {{ $post->title }} <br>
+    {{ $post->content }} <br><br>
 @endforeach

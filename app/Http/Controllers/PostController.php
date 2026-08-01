@@ -11,4 +11,16 @@ class PostController extends Controller
         $posts = Post::all();
         return view ('posts.index', compact('posts'));
     }
+
+    public function create () {
+        return view ('posts.create');
+    }
+
+    public function store (Request $request) {
+        $post = new Post($request->all());
+
+        $post->save();
+
+        return redirect('posts');
+    }
 }
