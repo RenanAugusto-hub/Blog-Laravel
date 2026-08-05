@@ -23,4 +23,22 @@ class PostController extends Controller
 
         return redirect('posts');
     }
+
+    public function edit ($id) {
+        $post = Post::FindOrFail($id);
+
+        return view ('posts.edit', compact('post'));
+    }
+
+    public function update (Request $request, $id) {
+        $post = Post::FindOrFail($id);
+
+        $post->title = $request->title;
+        $post->content = $request->content;
+
+        $post->save();
+
+        return redirect('posts');
+
+    }
 }
