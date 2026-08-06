@@ -46,4 +46,10 @@ class PostController extends Controller
 
         return view ('posts.show', compact('post'));
     }
+
+    public function destroy ($id) {
+        Post::destroy($id);
+
+        return redirect('posts');
+    }
 }
