@@ -19,7 +19,7 @@
     <form action="/posts/{{ $post->id }}" method="POST" style="display: inline;">
         @csrf
         @method('DELETE') 
-        <button type="submit" onclick="return confirm('Tem certeza que deseja deletar este post?')" style="background: none; border: none; color: red; cursor: pointer; text-decoration: underline; padding: 0;">
+        <button type="submit" onclick="return confirm('Tem certeza que deseja deletar este post?')">
             Deletar
         </button>
     </form>
