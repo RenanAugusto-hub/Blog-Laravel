@@ -17,17 +17,14 @@ class PostController extends Controller
     }
 
     public function store (Request $request) {
-        //$post = new Post($request->all());
-
         $validated = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
         ]);
 
-        //$post->save();
         Post::create($validated);
 
-        return redirect('posts');
+        return redirect('posts')->withSuccess('Novo Registro.');
     }
 
     public function edit ($id) {
@@ -37,12 +34,6 @@ class PostController extends Controller
     }
 
     public function update (Request $request, $id) {
-        //$post = Post::FindOrFail($id);
-
-        // $post->title = $request->title;
-        // $post->content = $request->content;
-
-        // $post->save();
         $validated = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
@@ -51,7 +42,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->update($validated);
 
-        return redirect('posts');
+        return redirect('posts')->withSuccess('Atualizado Registro.');
     }
 
     public function show ($id) {

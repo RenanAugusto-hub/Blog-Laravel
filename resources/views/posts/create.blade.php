@@ -5,10 +5,15 @@
         @csrf
         <label for="">Título</label>
         <input type="text" name="title" placeholder="Título: ">
+        @if ($errors->has('title'))
+            {{ $errors->first('title') }}
+        @endif
         
         <label for="">Conteudo</label>
-        <!-- <input type="text" name="content" placeholder="Conteudo: "> -->
         <textarea name="content" placeholder="Conteúdo"></textarea>
-        
+        @if ($errors->has('content'))
+            {{ $errors->first('content') }}
+        @endif
+
         <button type="submit">Salvar</button>
     </form>

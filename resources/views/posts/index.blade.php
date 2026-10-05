@@ -1,5 +1,16 @@
 <a href="/posts/create">Cadastrar</a>
 <h1>Posts</h1>
+
+<!-- @if ($message = Session::get('success'))
+    <div class="alert alert-success" role="alert">
+        {{ $message }}
+    </div>
+@endif -->
+
+@if ($message = Session::get('success'))
+    {{ $message }}
+@endif
+
 @foreach($posts as $post)
     {{ $post->title }} <br>
     {{ $post->content }} <br>
